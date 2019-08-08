@@ -2,6 +2,7 @@ version: '2'
 services:
   www_dominic:
     container_name: www_dominic
+    image: luxsource/nginx-php
     build: .
     ports:
       - "8081:80"
@@ -10,6 +11,7 @@ services:
     restart: always
   www_wetten:
     container_name: www_wetten
+    image: luxsource/nginx-php
     build: .
     ports:
       - "8082:80"
