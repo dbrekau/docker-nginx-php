@@ -1,0 +1,19 @@
+version: '2'
+services:
+  www_dominic:
+    container_name: www_dominic
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www/dominic:/www
+    restart: always
+  www_wetten:
+    container_name: www_wetten
+    build: .
+    ports:
+      - "8082:80"
+    volumes:
+      - ./www/wetten:/www
+      - ./www/wetten.nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
