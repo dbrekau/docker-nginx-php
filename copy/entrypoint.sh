@@ -10,7 +10,7 @@ fi
 echo "nginx running..."
 
 # Allow Environment in PHP-FPM
-if [ $NOTCLEARENV eq 1 ]
+if [ $NOTCLEARENV eq 1 ]; then
   echo "clear_env = no" >> /etc/php7/php-fpm.d/www.conf
 fi
 
