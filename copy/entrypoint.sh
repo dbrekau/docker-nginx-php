@@ -9,6 +9,11 @@ if [ $status -ne 0 ]; then
 fi
 echo "nginx running..."
 
+# Allow Environment in PHP-FPM
+if [ $NOTCLEARENV eq 1 ]
+  echo "clear_env = no" >> /etc/php7/php-fpm.d/www.conf
+fi
+
 # Start php7-fpm
 /usr/sbin/php-fpm7
 status=$?

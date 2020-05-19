@@ -1,21 +1,23 @@
 version: '2'
 services:
-  www_dominic:
-    container_name: www_dominic
+  www_1:
+    container_name: www_1
     image: luxsource/nginx-php
     build: .
     ports:
       - "8081:80"
     volumes:
-      - ./www/dominic:/www
+      - ./www/1:/www
     restart: always
-  www_wetten:
-    container_name: www_wetten
+  www_2:
+    container_name: www_2
     image: luxsource/nginx-php
     build: .
     ports:
       - "8082:80"
     volumes:
-      - ./www/wetten:/www
-      - ./www/wetten.nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./www/2:/www
+      - ./www/custom.nginx.conf:/etc/nginx/nginx.conf:ro
+    environment:
+      - "NOTCLEARENV=1"
     restart: always
